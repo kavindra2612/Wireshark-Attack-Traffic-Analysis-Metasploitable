@@ -7,13 +7,13 @@ Reconnaissance traffic was generated against a vulnerable Metasploitable machine
 
 ## 🧪 Lab Environment
 
-Attacker: Kali Linux (192.168.139.x)
+- Attacker Machine: Kali Linux
 
-Target: Metasploitable (192.168.139.x)
+- Target Machine: Metasploitable 2
 
-Network: VMware NAT (192.168.139.0/24)
+- Network Configuration: VMware NAT (192.168.139.0/24)
 
-Packet Capture Tool: Wireshark
+- Packet Capture Tool: Wireshark
 
 ## 🔍 Key Traffic Analysis Findings
 ## 1️⃣ TCP 3-Way Handshake
@@ -22,11 +22,11 @@ Packet Capture Tool: Wireshark
 
 Observed:
 
-SYN → SYN-ACK → ACK sequence
+- SYN → SYN-ACK → ACK sequence
 
-Successful connection establishment
+- Successful connection establishment
 
-Normal TCP session initialization
+- Normal TCP session initialization
 
 Analysis:
 This confirms active service availability and successful connection establishment during the scanning phase.
@@ -36,83 +36,83 @@ This confirms active service availability and successful connection establishmen
 
 Observed:
 
-Multiple sequential port connections
+- Multiple sequential port connections
 
-Full TCP handshake completed for each port
+- Full TCP handshake completed for each port
 
-Ports scanned: 22, 25, 80, 110, 139, 445, 3306
+- Ports scanned: 22, 25, 80, 110, 139, 445, 3306
 
 Analysis:
 This behavior is consistent with a TCP Connect scan (nmap -sT). High-frequency connection attempts across multiple ports indicate reconnaissance activity.
 
 SOC Indicators:
 
-Multiple short-lived TCP sessions
+- Multiple short-lived TCP sessions
 
-Sequential port probing
+- Sequential port probing
 
-Elevated connection volume within a short time window
+- Elevated connection volume within a short time window
 
 ## 3️⃣ UDP Scan with ICMP Port Unreachable
 ![UDP Scan](Screenshots/UDP%20scan.png)
 
 Observed:
 
-UDP probes sent to multiple ports
+- UDP probes sent to multiple ports
 
-ICMP Type 3 Code 3 (Port Unreachable) responses
+- ICMP Type 3 Code 3 (Port Unreachable) responses
 
 Analysis:
-Closed UDP ports generate ICMP “Destination Unreachable – Port Unreachable” responses. This pattern confirms UDP scanning behavior.
+- Closed UDP ports generate ICMP “Destination Unreachable – Port Unreachable” responses. This pattern confirms UDP scanning behavior.
 
 SOC Indicators:
 
-Multiple UDP packets with varying destination ports
+- Multiple UDP packets with varying destination ports
 
-ICMP error responses originating from the target
+- ICMP error responses originating from the target
 
 ## 📊 Additional Traffic Observed
 
-Additional protocol analysis (available in the /Screenshots folder):
+- Additional protocol analysis (available in the /Screenshots folder):
 
-ARP resolution (local host discovery)
+- ARP resolution (local host discovery)
 
-DNS queries and responses
+- DNS queries and responses
 
-TLS handshake (Client Hello / Server Hello)
+- TLS handshake (Client Hello / Server Hello)
 
-TCP RST packets for closed ports
+- TCP RST packets for closed ports
 
 ## 🛡️ Security Observations
 
-Active reconnaissance detected
+- Active reconnaissance detected
 
-Port enumeration activity identified
+- Port enumeration activity identified
 
-Service discovery attempts observed
+- Service discovery attempts observed
 
-Mixed TCP and UDP scanning techniques
+- Mixed TCP and UDP scanning techniques
 
-Clear indicators of early-stage attack lifecycle
+- Clear indicators of early-stage attack lifecycle
 
 ## Skills Demonstrated
 
-Packet-level traffic analysis
+- Packet-level traffic analysis
 
-Strong TCP/IP protocol understanding
+- Strong TCP/IP protocol understanding
 
-ARP and DNS traffic inspection
+- ARP and DNS traffic inspection
 
-TCP Connect scan identification
+- TCP Connect scan identification
 
-UDP scan detection
+- UDP scan detection
 
-ICMP response analysis
+- ICMP response analysis
 
-Reconnaissance detection methodology
+- Reconnaissance detection methodology
 
-SOC-style investigative documentation
+- SOC-style investigative documentation
 
 ## Conclusion
 
-This project demonstrates how reconnaissance and port scanning activity can be identified through packet-level analysis. By examining TCP handshakes, UDP probes, and ICMP responses, it is possible to detect early-stage attack behavior before exploitation occurs.
+- This project demonstrates how reconnaissance and port scanning activity can be identified through packet-level analysis. By examining TCP handshakes, UDP probes, and ICMP responses, it is possible to detect early-stage attack behavior before exploitation occurs.
