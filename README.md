@@ -17,7 +17,7 @@ Packet Capture Tool: Wireshark
 
 ## 🔍 Key Traffic Analysis Findings
 ## 1️⃣ TCP 3-Way Handshake
-![TCP 3-Way Handshake](Screenshots/3_way_handshake.png)
+![TCP 3-Way Handshake](Screenshots/3%20way%20Handshak.png)
 
 
 Observed:
