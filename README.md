@@ -32,7 +32,7 @@ Analysis:
 This confirms active service availability and successful connection establishment during the scanning phase.
 
 ## 2️⃣ TCP Connect Scan Behavior
-![TCP Connect Scan](./Screenshots/TCP scan.png)
+![TCP Connect Scan](Screenshots/TCP%20scan.png)
 
 Observed:
 
@@ -54,7 +54,7 @@ Sequential port probing
 Elevated connection volume within a short time window
 
 ## 3️⃣ UDP Scan with ICMP Port Unreachable
-![UDP Scan](./Screenshots/udp_scan.png)
+![UDP Scan](Screenshots/UDP%20scan.png)
 
 Observed:
 
